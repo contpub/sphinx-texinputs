@@ -51,12 +51,12 @@ bz2: tar
 	latex $(LATEXOPTS) '$<'
 
 %.pdf: %.tex
-	xelatex $(LATEXOPTS) '$<'
-	xelatex $(LATEXOPTS) '$<'
-	xelatex $(LATEXOPTS) '$<'
+	xelatex --halt-on-error $(LATEXOPTS) '$<'
+	xelatex --halt-on-error $(LATEXOPTS) '$<'
+	xelatex --halt-on-error $(LATEXOPTS) '$<'
 	-makeindex -s python.ist '$(basename $<).idx'
-	xelatex $(LATEXOPTS) '$<'
-	xelatex $(LATEXOPTS) '$<'
+	xelatex --halt-on-error $(LATEXOPTS) '$<'
+	xelatex --halt-on-error $(LATEXOPTS) '$<'
 
 clean:
 	rm -f *.dvi *.log *.ind *.aux *.toc *.syn *.idx *.out *.ilg *.pla
